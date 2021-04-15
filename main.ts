@@ -153,8 +153,11 @@ input.onGesture(Gesture.Shake, function () {
 })
 radio.onReceivedValue(function (name, value) {
     player = value
-    basic.pause(1000)
-    radio.sendValue("player", value)
+    while (count < 8) {
+        basic.pause(1000)
+        radio.sendValue("player", value)
+    }
+    count += 1
 })
 radio.onReceivedMessage(RadioMessage.endgame, function () {
     basic.showString("the game is over")
@@ -173,9 +176,11 @@ let player = 0
 let my_num = 0
 let hand = 0
 let playadd = 0
+let count = 0
 let wh = 0
 let admin_mode = 0
 admin_mode = 0
 wh = 0
+count = 0
 playadd = 1
 radio.setGroup(5)
